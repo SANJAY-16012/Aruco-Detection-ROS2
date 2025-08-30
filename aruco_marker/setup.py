@@ -1,8 +1,6 @@
 from setuptools import find_packages, setup
-import os
-from glob import glob
 
-package_name = 'armatronix'
+package_name = 'aruco_marker'
 
 setup(
     name=package_name,
@@ -12,10 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', glob('launch/*.launch.py')),
-        ('share/' + package_name + '/urdf', glob('urdf/*.urdf')),
-        ('share/' + package_name + '/meshes', glob('meshes/*.stl')),
-        ('share/' + package_name + '/config', glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -26,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'sample = armatronix.simple_joint_publisher:main'
+            'aruco_pyrealsense = aruco_marker.aruco_detection:main'
         ],
     },
 )
